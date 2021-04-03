@@ -1,18 +1,19 @@
 <template>
   <header>
     <nav>
-      <img
-        class="nav-item"
-        alt="carlos logo"
-        width="100px"
-        src="@/assets/cruiz_logo_small.png"
-      />
-      <a
+      <router-link to="/"
+        ><img
+          class="nav-item"
+          alt="carlos logo"
+          width="100px"
+          src="@/assets/cruiz_logo_small.png"
+      /></router-link>
+      <router-link
         class="nav-item"
         v-for="menu in menus"
         :key="menu.name"
-        href="menu.url"
-        >{{ menu.name }}</a
+        :to="menu.url"
+        >{{ menu.name }}</router-link
       >
     </nav>
   </header>
@@ -35,11 +36,21 @@ export default {
 nav {
   width: 100%;
   display: flex;
-  padding: 2em;
+  padding: 1em 0;
   align-items: center;
 }
 
 .nav-item {
   margin: 0 2em;
+}
+
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
